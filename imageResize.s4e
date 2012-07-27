@@ -1,0 +1,5 @@
+include:
+#include <s3eTypes.h>
+
+functions:
+bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight) false

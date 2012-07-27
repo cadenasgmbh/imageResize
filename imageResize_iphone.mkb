@@ -1,0 +1,13 @@
+#!/usr/bin/env mkb
+# Builder mkb file for the imageResize extension on iphone
+platform IPHONE
+
+options
+{
+    lib
+    output-name="lib/iphone/libimageResize.a"
+    output-name-debug="lib/iphone/libimageResize_d.a"
+}
+define S3E_BUILD_EXT
+
+subproject imageResize_build

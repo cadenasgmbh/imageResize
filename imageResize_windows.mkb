@@ -1,0 +1,23 @@
+#!/usr/bin/env mkb
+# Builder mkb file for the imageResize extension on windows
+platform WIN32
+
+options
+{
+    dll
+    x86
+    output-name="lib/win32/imageResize.dll"
+    output-name-debug="lib/win32/imageResize_d.dll"
+}
+define S3E_BUILD_EXT
+
+subproject imageResize_build
+
+package
+{
+	libjpeg
+}
+subprojects
+{
+	libjpeg
+}
