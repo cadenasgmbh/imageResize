@@ -12,6 +12,7 @@
  * Definitions for functions types passed to/from s3eExt interface
  */
 typedef       bool(*resizeImage_t)(const char* src, const char* dest, int maxWidth, int maxHeight);
+typedef       bool(*cnsSaveGLBufferToGallery_t)(const char* appname, void* buffer, int bufferlength, int width, int height);
 
 /**
  * struct that gets filled in by imageResizeRegister
@@ -19,6 +20,7 @@ typedef       bool(*resizeImage_t)(const char* src, const char* dest, int maxWid
 typedef struct imageResizeFuncs
 {
     resizeImage_t m_resizeImage;
+    cnsSaveGLBufferToGallery_t m_cnsSaveGLBufferToGallery;
 } imageResizeFuncs;
 
 static imageResizeFuncs g_Ext;
@@ -71,4 +73,14 @@ bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight)
         return false;
 
     return g_Ext.m_resizeImage(src, dest, maxWidth, maxHeight);
+}
+
+bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlength, int width, int height)
+{
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[1] func: cnsSaveGLBufferToGallery"));
+
+    if (!_extLoad())
+        return false;
+
+    return g_Ext.m_cnsSaveGLBufferToGallery(appname, buffer, bufferlength, width, height);
 }

@@ -1,6 +1,6 @@
 Archive member included because of file (symbol)
 
-C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
                               release\imageResize_platform.os (s3eEdkThreadRunOnOS)
 
 Discarded input sections
@@ -25,23 +25,23 @@ Discarded input sections
                 0x00000000        0x0 release\imageResize_register.os
  .note.GNU-stack
                 0x00000000        0x0 release\imageResize_register.os
- .text          0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .data          0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .bss           0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.extab.text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.exidx.text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.extab.text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.exidx.text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
 
 Memory Configuration
 
@@ -53,48 +53,48 @@ Linker script and memory map
 LOAD release\imageResize_platform.os
 LOAD release\imageResize.os
 LOAD release\imageResize_register.os
-LOAD C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a
-LOAD C:\Marmalade\6.0\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
-LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libc.so
-LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libm.so
-LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/liblog.so
-LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libstdc++.so
-LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
-                0x000000d4                . = (0x0 + SIZEOF_HEADERS)
+LOAD D:\marmalade\6.0\s3e\edk\lib\android\libedk.a
+LOAD D:\marmalade\6.0\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\Program Files (x86)\Android\android-ndk-r8b\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD C:\Program Files (x86)\Android\android-ndk-r8b\platforms\android-9\arch-arm\usr\lib/libm.so
+LOAD C:\Program Files (x86)\Android\android-ndk-r8b\platforms\android-9\arch-arm\usr\lib/liblog.so
+LOAD C:\Program Files (x86)\Android\android-ndk-r8b\platforms\android-9\arch-arm\usr\lib/libstdc++.so
+LOAD C:/Program Files (x86)/Android/android-ndk-r8b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+                0x000000f4                . = (0x0 + SIZEOF_HEADERS)
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
 
-.hash           0x000000d4       0x9c
+.hash           0x000000f4       0x9c
  *(.hash)
- .hash          0x000000d4       0x9c release\imageResize_platform.os
+ .hash          0x000000f4       0x9c release\imageResize_platform.os
 
 .gnu.hash
  *(.gnu.hash)
 
-.dynsym         0x00000170      0x140
+.dynsym         0x00000190      0x140
  *(.dynsym)
- .dynsym        0x00000170      0x140 release\imageResize_platform.os
+ .dynsym        0x00000190      0x140 release\imageResize_platform.os
 
-.dynstr         0x000002b0      0x129
+.dynstr         0x000002d0      0x129
  *(.dynstr)
- .dynstr        0x000002b0      0x129 release\imageResize_platform.os
+ .dynstr        0x000002d0      0x129 release\imageResize_platform.os
 
-.gnu.version    0x000003da        0x0 load address 0x000003d9
+.gnu.version    0x000003fa        0x0 load address 0x000003f9
  *(.gnu.version)
  .gnu.version   0x00000000        0x0 release\imageResize_platform.os
 
-.gnu.version_d  0x000003dc        0x0 load address 0x000003d9
+.gnu.version_d  0x000003fc        0x0 load address 0x000003f9
  *(.gnu.version_d)
  .gnu.version_d
                 0x00000000        0x0 release\imageResize_platform.os
 
-.gnu.version_r  0x000003dc        0x0 load address 0x000003d9
+.gnu.version_r  0x000003fc        0x0 load address 0x000003f9
  *(.gnu.version_r)
  .gnu.version_r
                 0x00000000        0x0 release\imageResize_platform.os
 
-.rel.dyn        0x000003dc       0x18
+.rel.dyn        0x000003fc       0x20
  *(.rel.init)
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
  *(.rel.fini)
@@ -106,7 +106,7 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
  *(.rel.ctors)
  *(.rel.dtors)
  *(.rel.got)
- .rel.got       0x000003dc       0x18 release\imageResize_platform.os
+ .rel.got       0x000003fc       0x20 release\imageResize_platform.os
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
 
 .rela.dyn
@@ -122,9 +122,9 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
  *(.rela.got)
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
 
-.rel.plt        0x000003f4       0x18
+.rel.plt        0x0000041c       0x18
  *(.rel.plt)
- .rel.plt       0x000003f4       0x18 release\imageResize_platform.os
+ .rel.plt       0x0000041c       0x18 release\imageResize_platform.os
 
 .rela.plt
  *(.rela.plt)
@@ -132,44 +132,47 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
 .init
  *(.init)
 
-.plt            0x0000040c       0x38
+.plt            0x00000434       0x38
  *(.plt)
- .plt           0x0000040c       0x38 release\imageResize_platform.os
+ .plt           0x00000434       0x38 release\imageResize_platform.os
 
-.text           0x00000444      0x430
+.text           0x0000046c      0x52c
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text._Z29imageResizeTerminate_platformv
-                0x00000444        0x4 release\imageResize_platform.os
-                0x00000444                imageResizeTerminate_platform()
+                0x0000046c        0x4 release\imageResize_platform.os
+                0x0000046c                imageResizeTerminate_platform()
  .text._ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
-                0x00000448       0x38 release\imageResize_platform.os
-                0x00000448                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
+                0x00000470       0x38 release\imageResize_platform.os
+                0x00000470                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
-                0x00000480       0x38 release\imageResize_platform.os
-                0x00000480                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
+                0x000004a8       0x38 release\imageResize_platform.os
+                0x000004a8                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
  .text._Z24imageResizeInit_platformv
-                0x000004b8      0x198 release\imageResize_platform.os
-                0x000004b8                imageResizeInit_platform()
+                0x000004e0      0x1d4 release\imageResize_platform.os
+                0x000004e0                imageResizeInit_platform()
+ .text.cnsSaveGLBufferToGallery
+                0x000006b4       0xa4 release\imageResize_platform.os
+                0x000006b4                cnsSaveGLBufferToGallery
  .text._Z20resizeImage_platformPKcS0_ii
-                0x00000650       0xb8 release\imageResize_platform.os
-                0x00000650                resizeImage_platform(char const*, char const*, int, int)
+                0x00000758       0xb8 release\imageResize_platform.os
+                0x00000758                resizeImage_platform(char const*, char const*, int, int)
  .text._ZL27s3eEdkAndroidFindClass_realPKc
-                0x00000708       0xa0 release\imageResize_platform.os
+                0x00000810       0xa0 release\imageResize_platform.os
  .text.resizeImage
-                0x000007a8       0x10 release\imageResize.os
-                0x000007a8                resizeImage
+                0x000008b0       0x10 release\imageResize.os
+                0x000008b0                resizeImage
  .text._Z20imageResizeTerminatev
-                0x000007b8       0x10 release\imageResize.os
-                0x000007b8                imageResizeTerminate()
+                0x000008c0       0x10 release\imageResize.os
+                0x000008c0                imageResizeTerminate()
  .text._Z15imageResizeInitv
-                0x000007c8       0x10 release\imageResize.os
-                0x000007c8                imageResizeInit()
+                0x000008d0       0x10 release\imageResize.os
+                0x000008d0                imageResizeInit()
  .text.RegisterExt
-                0x000007d8       0x6c release\imageResize_register.os
-                0x000007d8                RegisterExt
+                0x000008e0       0x88 release\imageResize_register.os
+                0x000008e0                RegisterExt
  .text.s3eEdkThreadRunOnOS
-                0x00000844       0x30 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x00000844                s3eEdkThreadRunOnOS
+                0x00000968       0x30 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000968                s3eEdkThreadRunOnOS
  *(.gnu.warning)
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
@@ -182,31 +185,31 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
 
 .fini
  *(.fini)
-                0x00000874                PROVIDE (__etext, .)
-                0x00000874                PROVIDE (_etext, .)
-                0x00000874                PROVIDE (etext, .)
+                0x00000998                PROVIDE (__etext, .)
+                0x00000998                PROVIDE (_etext, .)
+                0x00000998                PROVIDE (etext, .)
 
-.rodata         0x00000874       0x50
+.rodata         0x00000998       0x88
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00000874       0x50 release\imageResize_platform.os
+                0x00000998       0x88 release\imageResize_platform.os
  .rodata.str1.4
                 0x00000000        0xc release\imageResize_register.os
 
 .rodata1
  *(.rodata1)
 
-.ARM.extab      0x000008c4        0xc
+.ARM.extab      0x00000a20        0xc
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  .ARM.extab.text.s3eEdkThreadRunOnOS
-                0x000008c4        0xc C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x000008d0                __exidx_start = .
+                0x00000a20        0xc D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000a2c                __exidx_start = .
 
-.ARM.exidx      0x000008d0        0x8
+.ARM.exidx      0x00000a2c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.s3eEdkThreadRunOnOS
-                0x000008d0        0x8 C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x000008d8                __exidx_end = .
+                0x00000a2c        0x8 D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000a34                __exidx_end = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -216,8 +219,8 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x000008d8                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x000018d8                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+                0x00000a34                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00001f20                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -264,45 +267,45 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x000018d8       0xa8
+.dynamic        0x00001f20       0xb8
  *(.dynamic)
- .dynamic       0x000018d8       0xa8 release\imageResize_platform.os
-                0x000018d8                _DYNAMIC
-                0x00001980                . = (. DATA_SEGMENT_RELRO_END 0x0)
+ .dynamic       0x00001f20       0xb8 release\imageResize_platform.os
+                0x00001f20                _DYNAMIC
 
-.got            0x00001980       0x24
+.got            0x00001fd8       0x28
  *(.got.plt)
- .got.plt       0x00001980       0x18 release\imageResize_platform.os
-                0x00001980                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x00001fd8       0x18 release\imageResize_platform.os
+                0x00001fd8                _GLOBAL_OFFSET_TABLE_
  *(.got)
- .got           0x00001998        0xc release\imageResize_platform.os
+ .got           0x00001ff0       0x10 release\imageResize_platform.os
+                0x00002000                . = (. DATA_SEGMENT_RELRO_END 0x0)
 
-.data           0x000019a4        0x0
-                0x000019a4                __data_start = .
+.data           0x00002000        0x0
+                0x00002000                __data_start = .
  *(.data .data.* .gnu.linkonce.d.*)
 
 .data1
  *(.data1)
-                0x000019a4                _edata = .
-                0x000019a4                PROVIDE (edata, .)
-                0x000019a4                __bss_start = .
-                0x000019a4                __bss_start__ = .
+                0x00002000                _edata = .
+                0x00002000                PROVIDE (edata, .)
+                0x00002000                __bss_start = .
+                0x00002000                __bss_start__ = .
 
-.bss            0x000019a4        0x8
+.bss            0x00002000        0xc
  *(.dynbss)
  .dynbss        0x00000000        0x0 release\imageResize_platform.os
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000019a4        0x8 release\imageResize_platform.os
+ .bss           0x00002000        0xc release\imageResize_platform.os
  *(COMMON)
-                0x000019ac                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x000019ac                _bss_end__ = .
-                0x000019ac                __bss_end__ = .
-                0x000019ac                . = ALIGN (0x4)
-                0x000019ac                . = ALIGN (0x4)
-                0x000019ac                __end__ = .
-                0x000019ac                _end = .
-                0x000019ac                PROVIDE (end, .)
-                0x000019ac                . = DATA_SEGMENT_END (.)
+                0x0000200c                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000200c                _bss_end__ = .
+                0x0000200c                __bss_end__ = .
+                0x0000200c                . = ALIGN (0x4)
+                0x0000200c                . = ALIGN (0x4)
+                0x0000200c                __end__ = .
+                0x0000200c                _end = .
+                0x0000200c                PROVIDE (end, .)
+                0x0000200c                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -327,7 +330,7 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
  .comment       0x00000000       0x12 release\imageResize_platform.os
  .comment       0x00000012       0x12 release\imageResize.os
  .comment       0x00000024       0x12 release\imageResize_register.os
- .comment       0x00000036       0x2b C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .comment       0x00000036       0x2b D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
 
 .debug
  *(.debug)
@@ -395,7 +398,7 @@ LOAD C:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/b
 /DISCARD/
  *(.note.GNU-stack)
  *(.gnu_debuglink)
-OUTPUT(C:\Marmalade\6.0\extensions\imageResize\lib\android\libimageResize.so elf32-littlearm)
+OUTPUT(D:\marmalade\6.0\extensions\imageresize\lib\android\libimageResize.so elf32-littlearm)
 
 .ARM.attributes
                 0x00000000       0x2a
@@ -406,4 +409,4 @@ OUTPUT(C:\Marmalade\6.0\extensions\imageResize\lib\android\libimageResize.so elf
  .ARM.attributes
                 0x00000050       0x28 release\imageResize_register.os
  .ARM.attributes
-                0x00000078       0x2c C:\Marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000078       0x2c D:\marmalade\6.0\s3e\edk\lib\android\libedk.a(edk_helpers.o)

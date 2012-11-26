@@ -28,6 +28,8 @@ s3eBool imageResizeAvailable();
 
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight);
 
+bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlength, int width, int height);
+
 S3E_END_C_DECL
 
 #endif /* !S3E_EXT_IMAGERESIZE_H */

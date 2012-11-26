@@ -15,6 +15,16 @@ import com.ideaworks3d.marmalade.LoaderAPI;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+       
+import java.io.File;
+import android.os.Environment;
+import java.lang.Byte;
+
+import android.util.Log;
+
+import android.media.MediaScannerConnection;
+import android.media.MediaScannerConnection.MediaScannerConnectionClient;
+import android.net.Uri;
 
 class imageResize
 {
@@ -58,6 +68,73 @@ class imageResize
       {
         e.printStackTrace();
       }
+      return true;
+    }
+    
+    private MediaScannerConnection _msConn = null;
+    
+    public boolean cnsSaveGLBufferToGallery(String appname, int[] buffer, int bufferlen, int width, int height)
+    {     
+      int bt[]=new int[width*height];
+      
+      for(int i=0, k=0; i<height; i++, k++)
+      {//remember, that OpenGL bitmap is incompatible with Android bitmap
+      //and so, some correction need.        
+        for(int j=0; j<width; j++)
+        {
+          int pix=buffer[i*width+j];
+          int pb=(pix>>16)&0xff;
+          int pr=(pix<<16)&0x00ff0000;
+          int pix1=(pix&0xff00ff00) | pr | pb;
+          bt[(height-k-1)*width+j]=pix1;
+        }
+      }
+    /*
+      BitmapFactory.Options opt = new BitmapFactory.Options();
+      
+      opt.inDither = true;
+      opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
+      */
+      File imageFileFolder = new File(Environment.getExternalStorageDirectory(),appname);
+      imageFileFolder.mkdir();
+      
+      Log.e("image", "function called!");
+      
+      String name = "screenshot_" + System.currentTimeMillis() + ".png";
+      
+      Log.e("image", "name: "+name);
+      
+      Log.e("image", "bufferlength: "+buffer.length);
+      
+      final File imageFile = new File(imageFileFolder, name);
+      Bitmap bmp = Bitmap.createBitmap(bt, width, height, Bitmap.Config.ARGB_8888);
+      //BitmapFactory.decodeByteArray(buffer, 0, buffer.length/*, opt*/);
+      
+      Log.e("image", "isNull: "+(bmp==null));
+      
+      try {
+       FileOutputStream out = new FileOutputStream(imageFile);
+       bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+       out.flush();
+       out.close();
+       // scan here!
+        _msConn = new MediaScannerConnection(LoaderAPI.getActivity(), new MediaScannerConnectionClient()
+        {
+          public void onMediaScannerConnected()
+          {
+            _msConn.scanFile(imageFile.toString(), null);
+          }
+          public void onScanCompleted(String path, Uri uri)
+          {
+            _msConn.disconnect();
+          }
+        });
+        _msConn.connect();
+        
+      } catch (Exception e) {
+             e.printStackTrace();
+      }
+     
       return true;
     }
 }

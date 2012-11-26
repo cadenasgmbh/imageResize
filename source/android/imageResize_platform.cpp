@@ -15,6 +15,7 @@
 
 static jobject g_Obj;
 static jmethodID g_resizeImage;
+static jmethodID g_cnsSaveGLBufferToGallery;
 
 s3eResult imageResizeInit_platform()
 {
@@ -43,6 +44,9 @@ s3eResult imageResizeInit_platform()
     if (!g_resizeImage)
         goto fail;
 
+   g_cnsSaveGLBufferToGallery = env->GetMethodID(cls, "cnsSaveGLBufferToGallery", "(Ljava/lang/String;[IIII)Z" );
+   if(!g_cnsSaveGLBufferToGallery)
+        goto fail;
 
 
     IwTrace(IMAGERESIZE, ("IMAGERESIZE init success"));
@@ -76,4 +80,15 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
     jstring src_jstr = env->NewStringUTF(src);
     jstring dest_jstr = env->NewStringUTF(dest);
     return (bool)env->CallBooleanMethod(g_Obj, g_resizeImage, src_jstr, dest_jstr, maxWidth, maxHeight);
+}
+
+bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlen, int width, int height)
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    jstring appname_jstr = env->NewStringUTF(appname);
+    /*jbyteArray b = env->NewByteArray(bufferlen);
+    env->SetByteArrayRegion(b, 0, bufferlen, (const jbyte*)buffer);*/
+    bool ret = (bool)env->CallBooleanMethod(g_Obj, g_cnsSaveGLBufferToGallery, appname_jstr, buffer, bufferlen, width, height);
+    //env->DeleteLocalRef(&env, b);
+    return ret;
 }

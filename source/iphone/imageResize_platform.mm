@@ -85,3 +85,40 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   return YES;
   
 }
+
+bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlen, int width, int height)
+{
+  
+  GLubyte* b = (GLubyte*)buffer;
+  GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
+  for(int y = 0; y < height; y++)
+  {
+      for(int x = 0; x < width * 4; x++)
+      {
+          buffer2[(height-1 - y) * width * 4 + x] = b[y * 4 * width + x];
+      }
+  }
+ 
+  // make data provider with data.
+  CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer2, bufferlen, NULL);
+
+  // prep the ingredients
+  int bitsPerComponent = 8;
+  int bitsPerPixel = 32;
+  int bytesPerRow = 4 * width;
+  CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+  CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+  CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+
+  // make the cgimage
+  CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+
+  // then make the uiimage from that
+  UIImage *myImage = [UIImage imageWithCGImage:imageRef];
+  UIImageWriteToSavedPhotosAlbum(myImage, nil, nil, nil);
+  
+  //delete[] buffer2;
+  //free(buffer2);
+  
+  return YES;
+}
