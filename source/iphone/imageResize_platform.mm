@@ -86,7 +86,7 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   
 }
 
-bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlen, int width, int height)
+bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
 {
   
   GLubyte* b = (GLubyte*)buffer;

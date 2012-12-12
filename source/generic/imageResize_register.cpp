@@ -23,7 +23,7 @@ void imageResizeRegisterExt()
     /* fill in the function pointer struct for this extension */
     void* funcPtrs[2];
     funcPtrs[0] = (void*)resizeImage;
-    funcPtrs[1] = (void*)cnsSaveGLBufferToGallery;
+    funcPtrs[1] = (void*)cnsSaveImageBufferToGallery;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching

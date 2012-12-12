@@ -3,4 +3,4 @@ include:
 
 functions:
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight) false
-bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlength, int width, int height) false
+bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height) false

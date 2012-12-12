@@ -28,6 +28,7 @@ import android.net.Uri;
 
 class imageResize
 {
+    private final String LOGTAG = "IMAGERESIZE";
     public boolean resizeImage(String src, String dest, int maxWidth, int maxHeight)
     {	
       BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -73,10 +74,10 @@ class imageResize
     
     private MediaScannerConnection _msConn = null;
     
-    public boolean cnsSaveGLBufferToGallery(String appname, int[] buffer, int bufferlen, int width, int height)
-    {     
-      int bt[]=new int[width*height];
-      
+    public boolean cnsSaveImageBufferToGallery(String appname, int[] buffer, int width, int height)
+    { 
+      Log.d(LOGTAG, "cnsSaveImageBufferToGallery called!");
+      /*
       for(int i=0, k=0; i<height; i++, k++)
       {//remember, that OpenGL bitmap is incompatible with Android bitmap
       //and so, some correction need.        
@@ -89,7 +90,9 @@ class imageResize
           bt[(height-k-1)*width+j]=pix1;
         }
       }
-    /*
+      */
+
+      /*
       BitmapFactory.Options opt = new BitmapFactory.Options();
       
       opt.inDither = true;
@@ -98,19 +101,19 @@ class imageResize
       File imageFileFolder = new File(Environment.getExternalStorageDirectory(),appname);
       imageFileFolder.mkdir();
       
-      Log.e("image", "function called!");
+      
       
       String name = "screenshot_" + System.currentTimeMillis() + ".png";
       
-      Log.e("image", "name: "+name);
+      Log.d(LOGTAG, "name: "+name);
       
-      Log.e("image", "bufferlength: "+buffer.length);
+      Log.d(LOGTAG, "bufferlength: "+buffer.length);
       
       final File imageFile = new File(imageFileFolder, name);
-      Bitmap bmp = Bitmap.createBitmap(bt, width, height, Bitmap.Config.ARGB_8888);
+      Bitmap bmp = Bitmap.createBitmap(buffer, width, height, Bitmap.Config.ARGB_8888);
       //BitmapFactory.decodeByteArray(buffer, 0, buffer.length/*, opt*/);
       
-      Log.e("image", "isNull: "+(bmp==null));
+      Log.d(LOGTAG, "isNull: "+(bmp==null));
       
       try {
        FileOutputStream out = new FileOutputStream(imageFile);

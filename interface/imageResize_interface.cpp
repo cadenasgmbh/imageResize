@@ -5,6 +5,8 @@
 
 #include "s3eExt.h"
 #include "IwDebug.h"
+#include "s3eDevice.h"
+
 
 #include "imageResize.h"
 
@@ -12,7 +14,7 @@
  * Definitions for functions types passed to/from s3eExt interface
  */
 typedef       bool(*resizeImage_t)(const char* src, const char* dest, int maxWidth, int maxHeight);
-typedef       bool(*cnsSaveGLBufferToGallery_t)(const char* appname, void* buffer, int bufferlength, int width, int height);
+typedef       bool(*cnsSaveImageBufferToGallery_t)(const char* appname, int* buffer, int width, int height);
 
 /**
  * struct that gets filled in by imageResizeRegister
@@ -20,7 +22,7 @@ typedef       bool(*cnsSaveGLBufferToGallery_t)(const char* appname, void* buffe
 typedef struct imageResizeFuncs
 {
     resizeImage_t m_resizeImage;
-    cnsSaveGLBufferToGallery_t m_cnsSaveGLBufferToGallery;
+    cnsSaveImageBufferToGallery_t m_cnsSaveImageBufferToGallery;
 } imageResizeFuncs;
 
 static imageResizeFuncs g_Ext;
@@ -36,7 +38,8 @@ static bool _extLoad()
         if (res == S3E_RESULT_SUCCESS)
             g_GotExt = true;
         else
-            s3eDebugAssertShow(S3E_MESSAGE_CONTINUE_STOP_IGNORE, "error loading extension: imageResize");
+            s3eDebugAssertShow(S3E_MESSAGE_CONTINUE_STOP_IGNORE,                 "error loading extension: imageResize");
+            
         g_TriedExt = true;
         g_TriedNoMsgExt = true;
     }
@@ -72,15 +75,39 @@ bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight)
     if (!_extLoad())
         return false;
 
-    return g_Ext.m_resizeImage(src, dest, maxWidth, maxHeight);
+#ifdef __mips
+    // For MIPs platform we do not have asm code for stack switching 
+    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    bool ret = g_Ext.m_resizeImage(src, dest, maxWidth, maxHeight);
+
+#ifdef __mips
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
 }
 
-bool cnsSaveGLBufferToGallery(const char* appname, void* buffer, int bufferlength, int width, int height)
+bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
 {
-    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[1] func: cnsSaveGLBufferToGallery"));
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[1] func: cnsSaveImageBufferToGallery"));
 
     if (!_extLoad())
         return false;
 
-    return g_Ext.m_cnsSaveGLBufferToGallery(appname, buffer, bufferlength, width, height);
+#ifdef __mips
+    // For MIPs platform we do not have asm code for stack switching 
+    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    bool ret = g_Ext.m_cnsSaveImageBufferToGallery(appname, buffer, width, height);
+
+#ifdef __mips
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
 }
