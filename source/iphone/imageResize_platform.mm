@@ -88,7 +88,7 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
 
 bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
 {
-  
+  /*
   GLubyte* b = (GLubyte*)buffer;
   GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
   for(int y = 0; y < height; y++)
@@ -98,9 +98,11 @@ bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, in
           buffer2[(height-1 - y) * width * 4 + x] = b[y * 4 * width + x];
       }
   }
+  */
+  
  
   // make data provider with data.
-  CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer2, bufferlen, NULL);
+  CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, (const void *)buffer, width*height*4, NULL);
 
   // prep the ingredients
   int bitsPerComponent = 8;
