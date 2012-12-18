@@ -10,6 +10,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+// testing
+//#define DLog(fmt, ...) DLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+// finishing
+#define DLog(...)
 
 s3eResult imageResizeInit_platform()
 {
@@ -28,11 +32,11 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   NSString* destination = [[NSString alloc] initWithUTF8String:dest];
   
   
-  NSLog(@"loading %@ to %@ with %d * %d", source, destination, maxWidth, maxHeight);
+  DLog(@"loading %@ to %@ with %d * %d", source, destination, maxWidth, maxHeight);
  
   
   UIImage* tmpImage = [[UIImage alloc] initWithContentsOfFile:source]; 
-  NSLog(@"uiimage initialized");
+  DLog(@"uiimage initialized");
   
   CGSize newSize;
   
@@ -66,28 +70,29 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
       newSize = imgSize;
     }
   }
-  NSLog(@"scaling calculated");
+  DLog(@"scaling calculated");
   
   
   UIGraphicsBeginImageContext(newSize);
-  NSLog(@"img context begin");
+  DLog(@"img context begin");
   [tmpImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-  NSLog(@"img draw in rect");
+  DLog(@"img draw in rect");
   UIImage* destImg = UIGraphicsGetImageFromCurrentImageContext();
-  NSLog(@"img current context");
+  DLog(@"img current context");
   UIGraphicsEndImageContext();
-  NSLog(@"img context end");
+  DLog(@"img context end");
   [UIImageJPEGRepresentation(destImg, 1.0) writeToFile:destination atomically:YES];
   
   
   
-  NSLog(@"img save");
+  DLog(@"img save");
   return YES;
   
 }
 
 bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
 {
+  DLog(@"cnsSaveImageBufferToGallery");
   /*
   GLubyte* b = (GLubyte*)buffer;
   GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
@@ -113,10 +118,12 @@ bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, in
   CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
 
   // make the cgimage
+  DLog(@"CGImageCreate");
   CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
 
   // then make the uiimage from that
   UIImage *myImage = [UIImage imageWithCGImage:imageRef];
+  DLog(@"UIImageWriteToSavedPhotosAlbum");
   UIImageWriteToSavedPhotosAlbum(myImage, nil, nil, nil);
   
   //delete[] buffer2;
