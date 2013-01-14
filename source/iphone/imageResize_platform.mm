@@ -11,31 +11,29 @@
 #import <UIKit/UIKit.h>
 
 // testing
-//#define DLog(fmt, ...) DLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 // finishing
-#define DLog(...)
+//#define DLog(...)
 
-s3eResult imageResizeInit_platform()
-{
-    // Add any platform-specific initialisation code here
-    return S3E_RESULT_SUCCESS;
-}
+@interface ImageResizeC :  NSObject
 
-void imageResizeTerminate_platform()
-{
-    // Add any platform-specific termination code here
-}
+- (void) resizeImage:(const char*)src dest:(const char*)dest maxWidth:(int)maxWidth maxHeight:(int)maxHeight;
+- (void) saveImageBufferToGallery:(int*)buffer width:(int)width height:(int)height;
 
-bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int maxHeight)
+@end
+
+@implementation ImageResizeC
+
+- (void) resizeImage:(const char*)src dest:(const char*)dest maxWidth:(int)maxWidth maxHeight:(int)maxHeight
 {
   NSString* source = [[NSString alloc] initWithUTF8String:src];
   NSString* destination = [[NSString alloc] initWithUTF8String:dest];
   
   
   DLog(@"loading %@ to %@ with %d * %d", source, destination, maxWidth, maxHeight);
- 
   
-  UIImage* tmpImage = [[UIImage alloc] initWithContentsOfFile:source]; 
+  
+  UIImage* tmpImage = [[UIImage alloc] initWithContentsOfFile:source];
   DLog(@"uiimage initialized");
   
   CGSize newSize;
@@ -52,12 +50,12 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
       double factor = (double) imgSize.height / (double)maxHeight;
       newSize.width = imgSize.width / factor;
     }
-    else 
+    else
     {
-      newSize = imgSize; 
+      newSize = imgSize;
     }
   }
-  else 
+  else
   {
     if(imgSize.width > maxWidth)
     {
@@ -86,29 +84,27 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   
   
   DLog(@"img save");
-  return YES;
-  
 }
 
-bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
+- (void) saveImageBufferToGallery:(int*)buffer width:(int)width height:(int)height
 {
   DLog(@"cnsSaveImageBufferToGallery");
   /*
-  GLubyte* b = (GLubyte*)buffer;
-  GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
-  for(int y = 0; y < height; y++)
-  {
-      for(int x = 0; x < width * 4; x++)
-      {
-          buffer2[(height-1 - y) * width * 4 + x] = b[y * 4 * width + x];
-      }
-  }
-  */
+   GLubyte* b = (GLubyte*)buffer;
+   GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
+   for(int y = 0; y < height; y++)
+   {
+   for(int x = 0; x < width * 4; x++)
+   {
+   buffer2[(height-1 - y) * width * 4 + x] = b[y * 4 * width + x];
+   }
+   }
+   */
   
- 
+  
   // make data provider with data.
   CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, (const void *)buffer, width*height*4, NULL);
-
+  
   // prep the ingredients
   int bitsPerComponent = 8;
   int bitsPerPixel = 32;
@@ -116,18 +112,69 @@ bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, in
   CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
   CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
   CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
-
+  
   // make the cgimage
   DLog(@"CGImageCreate");
   CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
-
+  
   // then make the uiimage from that
   UIImage *myImage = [UIImage imageWithCGImage:imageRef];
   DLog(@"UIImageWriteToSavedPhotosAlbum");
-  UIImageWriteToSavedPhotosAlbum(myImage, nil, nil, nil);
+  
+  
+  UIImageWriteToSavedPhotosAlbum(myImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
   
   //delete[] buffer2;
   //free(buffer2);
-  
+}
+
+- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextinfo
+{
+  UIAlertView* alert;
+  if(error)
+  {
+    alert = [[UIAlertView alloc]      initWithTitle:@"Error"
+             message:@"Unable to save image to Photo Album."
+             delegate:self
+             cancelButtonTitle:@"Ok"
+             otherButtonTitles:nil];
+  }
+  else
+  {
+    alert = [[UIAlertView alloc]  initWithTitle:@"Success"
+                                  message:@"Image saved to Photo Album."
+                                  delegate:self
+                                  cancelButtonTitle:@"Ok"
+                                  otherButtonTitles:nil];
+  }
+  [alert show];
+  [alert release];
+}
+
+@end
+
+ImageResizeC* g_ImageResize = nil;
+
+s3eResult imageResizeInit_platform()
+{
+  g_ImageResize = [[ImageResizeC alloc] init];
+  return S3E_RESULT_SUCCESS;
+}
+
+void imageResizeTerminate_platform()
+{
+  [g_ImageResize release];
+  g_ImageResize = nil;
+}
+
+bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int maxHeight)
+{
+  [g_ImageResize resizeImage:src dest:dest maxWidth:maxWidth maxHeight:maxHeight];
+  return YES;
+}
+
+bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
+{
+  [g_ImageResize saveImageBufferToGallery:buffer width:width height:height];
   return YES;
 }
