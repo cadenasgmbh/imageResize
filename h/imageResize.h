@@ -17,6 +17,13 @@
 #define S3E_EXT_IMAGERESIZE_H
 
 #include <s3eTypes.h>
+
+typedef enum imageResizeCallback
+{
+	IMAGERESIZE_CALLBACK_SAVETOGALLERY_SUCCESS,
+	IMAGERESIZE_CALLBACK_SAVETOGALLERY_FAILED,
+	IMAGERESIZE_CALLBACK_MAX
+}imageResizeCallback;
 // \cond HIDDEN_DEFINES
 S3E_BEGIN_C_DECL
 // \endcond
@@ -25,6 +32,37 @@ S3E_BEGIN_C_DECL
  * Returns S3E_TRUE if the imageResize extension is available.
  */
 s3eBool imageResizeAvailable();
+
+/**
+ * Registers a callback to be called for an operating system event.
+ *
+ * The available callback types are listed in @ref imageResizeCallback.
+ * @param cbid ID of the event for which to register.
+ * @param fn callback function.
+ * @param userdata Value to pass to the @e userdata parameter of @e NotifyFunc.
+ * @return
+ *  - @ref S3E_RESULT_SUCCESS if no error occurred.
+ *  - @ref S3E_RESULT_ERROR if the operation failed.\n
+ *
+ * @see imageResizeUnRegister
+ * @note For more information on the system data passed as a parameter to the callback
+ * registered using this function, see the @ref imageResizeCallback enum.
+ */
+s3eResult imageResizeRegister(imageResizeCallback cbid, s3eCallback fn, void* userData);
+
+/**
+ * Unregister a callback for a given event.
+ * @param cbid ID of the callback for which to register.
+ * @param fn Callback Function.
+ * @return
+ * - @ref S3E_RESULT_SUCCESS if no error occurred.
+ * - @ref S3E_RESULT_ERROR if the operation failed.\n
+ * @note For more information on the systemData passed as a parameter to the callback
+ * registered using this function, see the imageResizeCallback enum.
+ * @note It is not necessary to define a return value for any registered callback.
+ * @see imageResizeRegister
+ */
+s3eResult imageResizeUnRegister(imageResizeCallback cbid, s3eCallback fn);
 
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight);
 

@@ -13,6 +13,8 @@
 /**
  * Definitions for functions types passed to/from s3eExt interface
  */
+typedef  s3eResult(*imageResizeRegister_t)(imageResizeCallback cbid, s3eCallback fn, void* userData);
+typedef  s3eResult(*imageResizeUnRegister_t)(imageResizeCallback cbid, s3eCallback fn);
 typedef       bool(*resizeImage_t)(const char* src, const char* dest, int maxWidth, int maxHeight);
 typedef       bool(*cnsSaveImageBufferToGallery_t)(const char* appname, int* buffer, int width, int height);
 
@@ -21,6 +23,8 @@ typedef       bool(*cnsSaveImageBufferToGallery_t)(const char* appname, int* buf
  */
 typedef struct imageResizeFuncs
 {
+    imageResizeRegister_t m_imageResizeRegister;
+    imageResizeUnRegister_t m_imageResizeUnRegister;
     resizeImage_t m_resizeImage;
     cnsSaveImageBufferToGallery_t m_cnsSaveImageBufferToGallery;
 } imageResizeFuncs;
@@ -68,9 +72,53 @@ s3eBool imageResizeAvailable()
     return g_GotExt ? S3E_TRUE : S3E_FALSE;
 }
 
+s3eResult imageResizeRegister(imageResizeCallback cbid, s3eCallback fn, void* userData)
+{
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[0] func: imageResizeRegister"));
+
+    if (!_extLoad())
+        return S3E_RESULT_ERROR;
+
+#ifdef __mips
+    // For MIPs platform we do not have asm code for stack switching 
+    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    s3eResult ret = g_Ext.m_imageResizeRegister(cbid, fn, userData);
+
+#ifdef __mips
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
+}
+
+s3eResult imageResizeUnRegister(imageResizeCallback cbid, s3eCallback fn)
+{
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[1] func: imageResizeUnRegister"));
+
+    if (!_extLoad())
+        return S3E_RESULT_ERROR;
+
+#ifdef __mips
+    // For MIPs platform we do not have asm code for stack switching 
+    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    s3eResult ret = g_Ext.m_imageResizeUnRegister(cbid, fn);
+
+#ifdef __mips
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return ret;
+}
+
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight)
 {
-    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[0] func: resizeImage"));
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[2] func: resizeImage"));
 
     if (!_extLoad())
         return false;
@@ -92,7 +140,7 @@ bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight)
 
 bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
 {
-    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[1] func: cnsSaveImageBufferToGallery"));
+    IwTrace(IMAGERESIZE_VERBOSE, ("calling imageResize[3] func: cnsSaveImageBufferToGallery"));
 
     if (!_extLoad())
         return false;

@@ -1,5 +1,13 @@
+callbacks
 include:
 #include <s3eTypes.h>
+
+typedef enum imageResizeCallback
+{
+	IMAGERESIZE_CALLBACK_SAVETOGALLERY_SUCCESS,
+	IMAGERESIZE_CALLBACK_SAVETOGALLERY_FAILED,
+	IMAGERESIZE_CALLBACK_MAX
+}imageResizeCallback;
 
 functions:
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight) false

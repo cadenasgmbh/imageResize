@@ -7,6 +7,7 @@
  * be overwritten (unless --force is specified) and is intended to be modified.
  */
 #include "imageResize_internal.h"
+#include "s3eEdk.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
@@ -15,11 +16,15 @@
 // finishing
 //#define DLog(...)
 
+//void* g_imageResize_last_error_message = NULL;
+
 @interface ImageResizeC :  NSObject
+{
+}
 
 - (void) resizeImage:(const char*)src dest:(const char*)dest maxWidth:(int)maxWidth maxHeight:(int)maxHeight;
 - (void) saveImageBufferToGallery:(int*)buffer width:(int)width height:(int)height;
-
+  
 @end
 
 @implementation ImageResizeC
@@ -130,25 +135,48 @@
 
 - (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextinfo
 {
-  UIAlertView* alert;
+  /*
+  if(g_imageResize_last_error_message)
+    s3eEdkFreeOS(g_imageResize_last_error_message);
+  */
+  
   if(error)
   {
+    /*
+    NSString *description = [error localizedDescription];
+    //NSString *description = [error localizedFailureReason];
+  
+    DLog(@"description: %@", description);
+    int len = [description lengthOfBytesUsingEncoding:NSUTF8StringEncoding] +1;
+    g_imageResize_last_error_message = s3eEdkMallocOS(len);
+    const char* desc = [description UTF8String];
+    memcpy(g_imageResize_last_error_message, desc, len);
+    */                                    
+    
+    s3eEdkCallbacksEnqueue(S3E_EXT_IMAGERESIZE_HASH,
+                           IMAGERESIZE_CALLBACK_SAVETOGALLERY_FAILED);
+    /*
     alert = [[UIAlertView alloc]      initWithTitle:@"Error"
              message:@"Unable to save image to Photo Album."
              delegate:self
              cancelButtonTitle:@"Ok"
              otherButtonTitles:nil];
+     */
   }
   else
   {
+    s3eEdkCallbacksEnqueue(S3E_EXT_IMAGERESIZE_HASH,
+                           IMAGERESIZE_CALLBACK_SAVETOGALLERY_SUCCESS);
+    /*
     alert = [[UIAlertView alloc]  initWithTitle:@"Success"
                                   message:@"Image saved to Photo Album."
                                   delegate:self
                                   cancelButtonTitle:@"Ok"
                                   otherButtonTitles:nil];
+     */
   }
-  [alert show];
-  [alert release];
+  //[alert show];
+  //[alert release];
 }
 
 @end

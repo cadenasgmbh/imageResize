@@ -18,17 +18,29 @@ extern s3eResult imageResizeInit();
 extern void imageResizeTerminate();
 
 
+s3eResult imageResizeRegister(imageResizeCallback cbid, s3eCallback fn, void* pData)
+{
+    return s3eEdkCallbacksRegister(S3E_EXT_IMAGERESIZE_HASH, IMAGERESIZE_CALLBACK_MAX, cbid, fn, pData, 0);
+};
+
+s3eResult imageResizeUnRegister(imageResizeCallback cbid, s3eCallback fn)
+{
+    return s3eEdkCallbacksUnRegister(S3E_EXT_IMAGERESIZE_HASH, IMAGERESIZE_CALLBACK_MAX, cbid, fn);
+}
+
 void imageResizeRegisterExt()
 {
     /* fill in the function pointer struct for this extension */
-    void* funcPtrs[2];
-    funcPtrs[0] = (void*)resizeImage;
-    funcPtrs[1] = (void*)cnsSaveImageBufferToGallery;
+    void* funcPtrs[4];
+    funcPtrs[0] = (void*)imageResizeRegister;
+    funcPtrs[1] = (void*)imageResizeUnRegister;
+    funcPtrs[2] = (void*)resizeImage;
+    funcPtrs[3] = (void*)cnsSaveImageBufferToGallery;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching
      */
-    int flags[2] = { 0 };
+    int flags[4] = { 0 };
 
     /*
      * Register the extension
