@@ -25,5 +25,10 @@ void imageResizeTerminate()
 
 bool resizeImage(const char* src, const char* dest, int maxWidth, int maxHeight)
 {
-	return resizeImage_platform(src, dest, maxWidth, maxHeight);
+  return resizeImage_platform(src, dest, maxWidth, maxHeight);
+}
+
+bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
+{
+  return cnsSaveImageBufferToGallery_platform(appname, buffer, width, height);
 }

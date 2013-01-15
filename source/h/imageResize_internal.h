@@ -43,6 +43,7 @@ void imageResizeTerminate();
  */
 void imageResizeTerminate_platform();
 bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int maxHeight);
+bool cnsSaveImageBufferToGallery_platform(const char* appname, int* buffer, int width, int height);
 
 
 #endif /* !IMAGERESIZE_INTERNAL_H */

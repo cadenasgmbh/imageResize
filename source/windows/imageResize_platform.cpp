@@ -369,3 +369,9 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   resizeJPEG(src, dest, maxWidth, maxHeight);
   return true;
 }
+
+bool cnsSaveImageBufferToGallery_platform(const char* appname, int* buffer, int width, int height)
+{
+  /* not implemented */
+  return true;
+}
