@@ -1,14 +1,11 @@
 Archive member included because of file (symbol)
 
-C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
                               release\imageResize_platform.os (s3eEdkThreadRunOnOS)
 
 Discarded input sections
 
- .text          0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .bss           0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .note.GNU-stack
-                0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .data          0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  _ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
                 0x00000000        0x0 release\imageResize_platform.os
  _ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
@@ -29,20 +26,18 @@ Discarded input sections
                 0x00000000        0x0 release\imageResize_register.os
  .note.GNU-stack
                 0x00000000        0x0 release\imageResize_register.os
- .text          0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .data          0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .bss           0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .text          0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
- .data          0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
- .bss           0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
- .note.GNU-stack
-                0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x00000000        0x0 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .data          0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .bss           0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 Memory Configuration
 
@@ -51,60 +46,61 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
-LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+LOAD C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 LOAD release\imageResize_platform.os
 LOAD release\imageResize.os
 LOAD release\imageResize_register.os
-LOAD C:\marmalade\6.1\s3e\edk\lib\android\libedk.a
-LOAD C:\marmalade\6.1\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/liblog.so
-LOAD X:\android\android-ndk-r8c\sources\cxx-stl\gnu-libstdc++\4.4.3\libs\armeabi\libgnustl_static.a
-LOAD x:/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libstdc++.so
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libm.so
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libc.so
-LOAD x:/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libc.so
-LOAD X:\android\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libdl.so
-LOAD x:/android/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
-LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
-                0x000000d4                . = (0x0 + SIZEOF_HEADERS)
+LOAD C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a
+LOAD C:\Marmalade\6.1\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/liblog.so
+LOAD C:\android-ndk-r8\sources\cxx-stl\gnu-libstdc++\libs\armeabi\libgnustl_static.a
+LOAD c:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libstdc++.so
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libm.so
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD c:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD C:\android-ndk-r8\platforms\android-9\arch-arm\usr\lib/libdl.so
+LOAD c:/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x000000b4                . = (0x0 + SIZEOF_HEADERS)
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
 
-.hash           0x000000d4       0xa0
+.hash           0x000000b4       0xb4
  *(.hash)
- .hash          0x000000d4       0xa0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .hash          0x000000b4       0xb4 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .gnu.hash
  *(.gnu.hash)
 
-.dynsym         0x00000174      0x150
+.dynsym         0x00000168      0x1a0
  *(.dynsym)
- .dynsym        0x00000174      0x150 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynsym        0x00000168      0x1a0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.dynstr         0x000002c4      0x12e
+.dynstr         0x00000308      0x195
  *(.dynstr)
- .dynstr        0x000002c4      0x12e X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynstr        0x00000308      0x195 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version    0x000003f2        0x0
+.gnu.version    0x0000049e        0x0 load address 0x0000049d
  *(.gnu.version)
- .gnu.version   0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .gnu.version   0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version_d  0x000003f4        0x0 load address 0x000003f2
+.gnu.version_d  0x000004a0        0x0 load address 0x0000049d
  *(.gnu.version_d)
  .gnu.version_d
-                0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version_r  0x000003f4        0x0 load address 0x000003f2
+.gnu.version_r  0x000004a0        0x0 load address 0x0000049d
  *(.gnu.version_r)
  .gnu.version_r
-                0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.rel.dyn        0x000003f4       0x28
+.rel.dyn        0x000004a0       0x30
  *(.rel.init)
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ .rel.text      0x000004a0        0x8 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.rel.fini)
  *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
  *(.rel.data.rel.ro* .rel.gnu.linkonce.d.rel.ro.*)
@@ -114,10 +110,10 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.rel.ctors)
  *(.rel.dtors)
  *(.rel.got)
- .rel.got       0x000003f4       0x20 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.got       0x000004a8       0x20 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
  .rel.fini_array
-                0x00000414        0x8 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x000004c8        0x8 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.dyn
  *(.rela.init)
@@ -132,9 +128,9 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.rela.got)
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
 
-.rel.plt        0x0000041c       0x20
+.rel.plt        0x000004d0       0x38
  *(.rel.plt)
- .rel.plt       0x0000041c       0x20 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.plt       0x000004d0       0x38 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.plt
  *(.rela.plt)
@@ -142,49 +138,54 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 .init
  *(.init)
 
-.plt            0x0000043c       0x44
+.plt            0x00000508       0x68
  *(.plt)
- .plt           0x0000043c       0x44 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .plt           0x00000508       0x68 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.text           0x00000480      0x524
+.text           0x00000570      0x60c
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text.exit     0x00000480       0x10 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00000480                __on_dlclose
+ .text          0x00000570       0x10 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  .text._Z29imageResizeTerminate_platformv
-                0x00000490        0x4 release\imageResize_platform.os
-                0x00000490                imageResizeTerminate_platform()
+                0x00000580        0x4 release\imageResize_platform.os
+                0x00000580                imageResizeTerminate_platform()
  .text._ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
-                0x00000494       0x34 release\imageResize_platform.os
-                0x00000494                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
+                0x00000584       0x34 release\imageResize_platform.os
+                0x00000584                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
-                0x000004c8       0x34 release\imageResize_platform.os
-                0x000004c8                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
+                0x000005b8       0x34 release\imageResize_platform.os
+                0x000005b8                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
  .text._Z24imageResizeInit_platformv
-                0x000004fc      0x1a8 release\imageResize_platform.os
-                0x000004fc                imageResizeInit_platform()
+                0x000005ec      0x1a8 release\imageResize_platform.os
+                0x000005ec                imageResizeInit_platform()
  .text._Z20resizeImage_platformPKcS0_ii
-                0x000006a4       0xa8 release\imageResize_platform.os
-                0x000006a4                resizeImage_platform(char const*, char const*, int, int)
+                0x00000794       0xa8 release\imageResize_platform.os
+                0x00000794                resizeImage_platform(char const*, char const*, int, int)
  .text._ZL27s3eEdkAndroidFindClass_realPKc
-                0x0000074c       0xb8 release\imageResize_platform.os
+                0x0000083c       0xb8 release\imageResize_platform.os
  .text.cnsSaveImageBufferToGallery
-                0x00000804       0xe0 release\imageResize_platform.os
-                0x00000804                cnsSaveImageBufferToGallery
+                0x000008f4      0x138 release\imageResize_platform.os
+                0x000008f4                cnsSaveImageBufferToGallery
  .text.resizeImage
-                0x000008e4        0x4 release\imageResize.os
-                0x000008e4                resizeImage
+                0x00000a2c        0x4 release\imageResize.os
+                0x00000a2c                resizeImage
  .text._Z20imageResizeTerminatev
-                0x000008e8        0x4 release\imageResize.os
-                0x000008e8                imageResizeTerminate()
+                0x00000a30        0x4 release\imageResize.os
+                0x00000a30                imageResizeTerminate()
  .text._Z15imageResizeInitv
-                0x000008ec        0x4 release\imageResize.os
-                0x000008ec                imageResizeInit()
+                0x00000a34        0x4 release\imageResize.os
+                0x00000a34                imageResizeInit()
+ .text.imageResizeUnRegister
+                0x00000a38       0x30 release\imageResize_register.os
+                0x00000a38                imageResizeUnRegister
+ .text.imageResizeRegister
+                0x00000a68       0x34 release\imageResize_register.os
+                0x00000a68                imageResizeRegister
  .text.RegisterExt
-                0x000008f0       0x84 release\imageResize_register.os
-                0x000008f0                RegisterExt
+                0x00000a9c       0xb0 release\imageResize_register.os
+                0x00000a9c                RegisterExt
  .text.s3eEdkThreadRunOnOS
-                0x00000974       0x30 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x00000974                s3eEdkThreadRunOnOS
+                0x00000b4c       0x30 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000b4c                s3eEdkThreadRunOnOS
  *(.gnu.warning)
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
@@ -197,14 +198,14 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .fini
  *(.fini)
-                0x000009a4                PROVIDE (__etext, .)
-                0x000009a4                PROVIDE (_etext, .)
-                0x000009a4                PROVIDE (etext, .)
+                0x00000b7c                PROVIDE (__etext, .)
+                0x00000b7c                PROVIDE (_etext, .)
+                0x00000b7c                PROVIDE (etext, .)
 
-.rodata         0x000009a4       0x88
+.rodata         0x00000b7c       0x88
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x000009a4       0x88 release\imageResize_platform.os
+                0x00000b7c       0x88 release\imageResize_platform.os
  .rodata.str1.4
                 0x00000000        0xc release\imageResize_register.os
 
@@ -213,11 +214,11 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000a2c                __exidx_start = .
+                0x00000c04                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000a2c                __exidx_end = .
+                0x00000c04                __exidx_end = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -227,8 +228,8 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x00000a2c                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x00001ef0                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+                0x00000c04                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00001c04                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -246,15 +247,18 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 .preinit_array
  *(.preinit_array)
 
-.init_array     0x00001ef0        0x4
+.init_array     0x00001c04        0x8
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00001ef0        0x4 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .init_array    0x00001c04        0x4 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001c04                __INIT_ARRAY__
+ .init_array    0x00001c08        0x4 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
-.fini_array     0x00001ef4        0x8
+.fini_array     0x00001c0c        0xc
  *(.fini_array)
- .fini_array    0x00001ef4        0x4 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .fini_array    0x00001ef8        0x4 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .fini_array    0x00001c0c        0x8 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001c0c                __FINI_ARRAY__
+ .fini_array    0x00001c14        0x4 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(SORT(.fini_array.*))
 
 .ctors
@@ -278,47 +282,47 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x00001efc       0xd8
+.dynamic        0x00001c18       0xd0
  *(.dynamic)
- .dynamic       0x00001efc       0xd8 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00001efc                _DYNAMIC
+ .dynamic       0x00001c18       0xd0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001c18                _DYNAMIC
+                0x00001ce8                . = (. DATA_SEGMENT_RELRO_END 0x0)
 
-.got            0x00001fd4       0x2c
+.got            0x00001ce8       0x38
  *(.got.plt)
- .got.plt       0x00001fd4       0x1c X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00001fd4                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x00001ce8       0x28 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001ce8                _GLOBAL_OFFSET_TABLE_
  *(.got)
- .got           0x00001ff0       0x10 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00002000                . = (. DATA_SEGMENT_RELRO_END 0x0)
+ .got           0x00001d10       0x10 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.data           0x00002000        0x4
-                0x00002000                __data_start = .
+.data           0x00001d20        0x0
+                0x00001d20                __data_start = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00002000        0x4 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00002000                __dso_handle
 
 .data1
  *(.data1)
-                0x00002004                _edata = .
-                0x00002004                PROVIDE (edata, .)
-                0x00002004                __bss_start = .
-                0x00002004                __bss_start__ = .
+                0x00001d20                _edata = .
+                0x00001d20                PROVIDE (edata, .)
+                0x00001d20                __bss_start = .
+                0x00001d20                __bss_start__ = .
 
-.bss            0x00002004        0xc
+.bss            0x00001d20       0x1c
  *(.dynbss)
- .dynbss        0x00000000        0x0 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynbss        0x00000000        0x0 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00002004        0xc release\imageResize_platform.os
+ .bss           0x00001d20       0x10 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001d20                __dso_handle
+ .bss           0x00001d30        0xc release\imageResize_platform.os
  *(COMMON)
-                0x00002010                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x00002010                _bss_end__ = .
-                0x00002010                __bss_end__ = .
-                0x00002010                . = ALIGN (0x4)
-                0x00002010                . = ALIGN (0x4)
-                0x00002010                __end__ = .
-                0x00002010                _end = .
-                0x00002010                PROVIDE (end, .)
-                0x00002010                . = DATA_SEGMENT_END (.)
+                0x00001d3c                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00001d3c                _bss_end__ = .
+                0x00001d3c                __bss_end__ = .
+                0x00001d3c                . = ALIGN (0x4)
+                0x00001d3c                . = ALIGN (0x4)
+                0x00001d3c                __end__ = .
+                0x00001d3c                _end = .
+                0x00001d3c                PROVIDE (end, .)
+                0x00001d3c                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -338,14 +342,12 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment        0x00000000       0x6d
+.comment        0x00000000       0x48
  *(.comment)
- .comment       0x00000000       0x25 X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                                 0x26 (size before relaxing)
- .comment       0x00000025       0x12 release\imageResize_platform.os
- .comment       0x00000037       0x12 release\imageResize.os
- .comment       0x00000049       0x12 release\imageResize_register.os
- .comment       0x0000005b       0x12 C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .comment       0x00000000       0x12 release\imageResize_platform.os
+ .comment       0x00000012       0x12 release\imageResize.os
+ .comment       0x00000024       0x12 release\imageResize_register.os
+ .comment       0x00000036       0x12 C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
 
 .debug
  *(.debug)
@@ -413,19 +415,19 @@ LOAD X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 /DISCARD/
  *(.note.GNU-stack)
  *(.gnu_debuglink)
-OUTPUT(C:\marmalade\6.1\extensions\imageresize\lib\android\libimageResize.so elf32-littlearm)
+OUTPUT(C:\Marmalade\6.1\extensions\imageResize\lib\android\libimageResize.so elf32-littlearm)
 
 .ARM.attributes
-                0x00000000       0x31
+                0x00000000       0x29
  .ARM.attributes
-                0x00000000       0x2d X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000       0x19 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  .ARM.attributes
-                0x0000002d       0x2b release\imageResize_platform.os
+                0x00000019       0x2b release\imageResize_platform.os
  .ARM.attributes
-                0x00000058       0x2b release\imageResize.os
+                0x00000044       0x2b release\imageResize.os
  .ARM.attributes
-                0x00000083       0x2b release\imageResize_register.os
+                0x0000006f       0x2b release\imageResize_register.os
  .ARM.attributes
-                0x000000ae       0x2b C:\marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x0000009a       0x2b C:\Marmalade\6.1\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.attributes
-                0x000000d9       0x1f X:/android/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x000000c5       0x17 C:/android-ndk-r8/platforms/android-9/arch-arm/usr/lib/crtend_so.o

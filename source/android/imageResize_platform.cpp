@@ -92,5 +92,9 @@ bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, in
     
     bool ret = (bool)env->CallBooleanMethod(g_Obj, g_cnsSaveImageBufferToGallery, appname_jstr, intArray, width, height);
     env->DeleteLocalRef(intArray);
+    if(ret)
+      s3eEdkCallbacksEnqueue(S3E_EXT_IMAGERESIZE_HASH, IMAGERESIZE_CALLBACK_SAVETOGALLERY_SUCCESS);
+    else
+      s3eEdkCallbacksEnqueue(S3E_EXT_IMAGERESIZE_HASH, IMAGERESIZE_CALLBACK_SAVETOGALLERY_FAILED);
     return ret;
 }

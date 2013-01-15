@@ -115,12 +115,13 @@ class imageResize
       
       Log.d(LOGTAG, "isNull: "+(bmp==null));
       
-      try {
-       FileOutputStream out = new FileOutputStream(imageFile);
-       bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
-       out.flush();
-       out.close();
-       // scan here!
+      try 
+      {
+        FileOutputStream out = new FileOutputStream(imageFile);
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+        out.flush();
+        out.close();
+        // scan here!
         _msConn = new MediaScannerConnection(LoaderAPI.getActivity(), new MediaScannerConnectionClient()
         {
           public void onMediaScannerConnected()
@@ -134,10 +135,12 @@ class imageResize
         });
         _msConn.connect();
         
-      } catch (Exception e) {
-             e.printStackTrace();
-      }
-     
+      } 
+      catch (Exception e) 
+      {
+        e.printStackTrace();
+        return false;
+      }     
       return true;
     }
 }
