@@ -1,5 +1,5 @@
-c:\marmalade\6.1\extensions\imageresize\h\imageResize.h
-c:\marmalade\6.1\extensions\imageresize\source\h\imageResize_autodefs.h
-c:\marmalade\6.1\extensions\imageresize\interface\imageResize_interface.cpp
-c:\marmalade\6.1\extensions\imageresize\interface\imageResize.defines.txt
-c:\marmalade\6.1\extensions\imageresize\source\generic\imageResize_register.cpp
+/Developer/Marmalade/6.2/extensions/imageResize/h/imageResize.h
+/Developer/Marmalade/6.2/extensions/imageResize/source/h/imageResize_autodefs.h
+/Developer/Marmalade/6.2/extensions/imageResize/interface/imageResize_interface.cpp
+/Developer/Marmalade/6.2/extensions/imageResize/interface/imageResize.defines.txt
+/Developer/Marmalade/6.2/extensions/imageResize/source/generic/imageResize_register.cpp

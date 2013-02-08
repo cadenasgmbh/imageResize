@@ -12,9 +12,9 @@
 #import <UIKit/UIKit.h>
 
 // testing
-#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 // finishing
-//#define DLog(...)
+#define DLog(...)
 
 //void* g_imageResize_last_error_message = NULL;
 
@@ -35,7 +35,7 @@
   NSString* destination = [[NSString alloc] initWithUTF8String:dest];
   
   
-  DLog(@"loading %@ to %@ with %d * %d", source, destination, maxWidth, maxHeight);
+  DLog(@"loading %@ to %@ with max %d * %d", source, destination, maxWidth, maxHeight);
   
   
   UIImage* tmpImage = [[UIImage alloc] initWithContentsOfFile:source];
@@ -44,6 +44,7 @@
   CGSize newSize;
   
   CGSize imgSize = tmpImage.size;
+  DLog(@"original image size: %f*%f", imgSize.width, imgSize.height);
   
   double scale = 0.0f;
   
@@ -51,8 +52,8 @@
   {
     if(imgSize.height > maxHeight)
     {
-      newSize.height = maxHeight;
-      double factor = (double) imgSize.height / (double)maxHeight;
+      newSize.height = (float)maxHeight;
+      float factor =  imgSize.height / (float)maxHeight;
       newSize.width = imgSize.width / factor;
     }
     else
@@ -64,8 +65,8 @@
   {
     if(imgSize.width > maxWidth)
     {
-      newSize.width = maxWidth;
-      double factor = (double) imgSize.width / (double)maxWidth;
+      newSize.width = (float)maxWidth;
+      float factor =  imgSize.width / (float)maxWidth;
       newSize.height = imgSize.height / factor;
     }
     else
@@ -76,7 +77,7 @@
   DLog(@"scaling calculated");
   
   
-  UIGraphicsBeginImageContext(newSize);
+  UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
   DLog(@"img context begin");
   [tmpImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
   DLog(@"img draw in rect");
@@ -84,16 +85,14 @@
   DLog(@"img current context");
   UIGraphicsEndImageContext();
   DLog(@"img context end");
-  [UIImageJPEGRepresentation(destImg, 1.0) writeToFile:destination atomically:YES];
-  
-  
+  [UIImageJPEGRepresentation(destImg, 0.5) writeToFile:destination atomically:YES];
   
   DLog(@"img save");
 }
 
 - (void) saveImageBufferToGallery:(int*)buffer width:(int)width height:(int)height
 {
-  DLog(@"cnsSaveImageBufferToGallery");
+  DLog(@"saveImageBufferToGallery");
   /*
    GLubyte* b = (GLubyte*)buffer;
    GLubyte *buffer2 = new GLubyte[bufferlen];//(GLubyte *) malloc(bufferlen);
@@ -201,7 +200,7 @@ bool resizeImage_platform(const char* src, const char* dest, int maxWidth, int m
   return YES;
 }
 
-bool cnsSaveImageBufferToGallery(const char* appname, int* buffer, int width, int height)
+bool cnsSaveImageBufferToGallery_platform(const char* appname, int* buffer, int width, int height)
 {
   [g_ImageResize saveImageBufferToGallery:buffer width:width height:height];
   return YES;
